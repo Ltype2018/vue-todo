@@ -1,7 +1,7 @@
 //axios 封装
 import axios from 'axios'
 import {Toast} from 'vant'
-import { Store } from 'vuex'
+
 
 
 //提示函数
