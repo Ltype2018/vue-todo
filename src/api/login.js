@@ -1,20 +1,12 @@
 import instance from '@/utils/https'
+import base from '@/utils/base'
+import Qs from 'qs'
 
-const passwordLogin = (name, password) => instance({
-    url:'',
+const toLogin = (data)=>instance({
+    url:base.login,
     method:'post',
-    data:{
-        username:name,
-        password:password
-    }
-})
+    data:Qs.stringify(data)
+}
 
-const telLogin = (tel,captcha) => instance({
-    url:'',
-    method:'post',
-    data:{
-        tel:tel,
-        captcha:captcha
-    }
-})
-export default {passwordLogin, telLogin}
+)
+export  {toLogin}

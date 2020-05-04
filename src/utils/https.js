@@ -1,6 +1,8 @@
 //axios 封装
 import axios from 'axios'
 import {Toast} from 'vant'
+import router from '@/router'
+import store from '@/store'
 
 
 
@@ -24,7 +26,7 @@ const toLogin = ()=>{
 }
 
 //请求失败后错误统一处理
-const errorHandle = (state, other) =>{
+const errorHandle = (status, other) =>{
     switch(status){
         case 401: toLogin();
                    break;
@@ -36,12 +38,13 @@ const errorHandle = (state, other) =>{
             setTimeout(() =>{
                 toLogin()
             }, 1000);
+            break;
         //404页面不存在
         case 404:
             tip('请求的资源不存在');
             break;
         default:
-            console.log('可能网站有问题')
+            console.log(other)
     }
 }
 

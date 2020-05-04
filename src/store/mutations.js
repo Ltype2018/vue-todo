@@ -1,4 +1,6 @@
-const updateUserInfo = (state, newUserInfo) => state.userInfo = newUserInfo
+const updateUserInfo = (state, newUserInfo) =>{ 
+    console.log(newUserInfo)
+    state.userInfo = newUserInfo}
 
 
 export default {updateUserInfo}

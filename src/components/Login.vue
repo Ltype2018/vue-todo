@@ -9,14 +9,14 @@
             </template>
           </van-field>
           <div style="margin:16px;">
-            <van-button round block type="info">注册/登录</van-button>
+            <van-button round block type="info" @click="telLogin">注册/登录</van-button>
           </div>
       </van-tab>
       <van-tab title="密码登录" name="register">
-          <van-field v-model="tel" required name="用户名" label="用户名"></van-field>
+          <van-field v-model="username" required name="用户名" label="用户名"></van-field>
           <van-field v-model="password" required type="password" label="密码" placeholder="密码"></van-field>
           <div style="margin:16px;">
-            <van-button round block type="info">登录</van-button>
+            <van-button round block type="info" @click="login">登录</van-button>
           </div>
       </van-tab>
     </van-tabs>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
   name: "Login",
   data() {
@@ -36,9 +37,18 @@ export default {
     };
   },
   methods:{
-    onSubmit(){
-      console.log('hell')
-    }
+     ...mapActions(['v_toLogin']),
+     login(){
+       let data = {
+         username:this.username,
+         password:this.password
+       }
+       console.log('login')
+       this.v_toLogin(data)
+     },
+     telLogin(){
+       console.log('cao')
+     }
   }
 };
 </script>
