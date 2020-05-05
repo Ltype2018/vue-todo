@@ -1,11 +1,15 @@
 <template>
     <div class="home">
-        home
+        <Layout></Layout>
     </div>
 </template>
 
 <script>
+import Layout from '@/views/Layout'
 export default {
-    name:"Home"
+    name:"Home",
+    components:{
+        Layout
+    }
 }
 </script>

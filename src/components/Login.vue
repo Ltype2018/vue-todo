@@ -2,10 +2,10 @@
   <div class="hello">
     <van-tabs v-model="activeName">
       <van-tab title="免密码登录" name="login">
-          <van-field v-model="tel" required  label="手机号"></van-field>
-          <van-field v-model="sms" required  type="password" label="短信验证码" placeholder="验证码">
+          <van-field v-model="tel" required type="tel" label="手机号"></van-field>
+          <van-field v-model="sms" required  type="digit"  placeholder="输入6位短信验证码">
             <template #button>
-              <van-button size="small" type="primary">发送验证码</van-button>
+              <van-button size="small" type="primary">获取验证码</van-button>
             </template>
           </van-field>
           <div style="margin:16px;">
@@ -13,8 +13,8 @@
           </div>
       </van-tab>
       <van-tab title="密码登录" name="register">
-          <van-field v-model="username" required name="用户名" label="用户名"></van-field>
-          <van-field v-model="password" required type="password" label="密码" placeholder="密码"></van-field>
+          <van-field v-model="telmail" required    placeholder="手机号或邮箱"></van-field>
+          <van-field v-model="password" required  type="password"  placeholder="密码"></van-field>
           <div style="margin:16px;">
             <van-button round block type="info" @click="login">登录</van-button>
           </div>
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       activeName: "login",
-      username:'',
+      telmail:'',
       password:'',
       tel:'',
       sms:''
@@ -43,7 +43,6 @@ export default {
          username:this.username,
          password:this.password
        }
-       console.log('login')
        this.v_toLogin(data)
      },
      telLogin(){
