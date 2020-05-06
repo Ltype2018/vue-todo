@@ -3,5 +3,8 @@ const updateUserInfo = (state, {username, userLevel}) =>{
     state.userInfo.username = username
 }
 
-
-export default {updateUserInfo}
+const updateTodo = (state,todos)=>{
+    console.log('cc')
+    state.todoList = todos
+}
+export default {updateUserInfo,updateTodo}

@@ -1,2 +1,10 @@
-var a = 5
-export default a 
+const filters = {
+       active(todo){
+           return todo.done === false
+       },
+       completed(todo){
+           return todo.done === true
+       }
+}
+
+export default filters

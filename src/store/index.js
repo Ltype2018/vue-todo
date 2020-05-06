@@ -9,6 +9,18 @@ const store = new Vuex.Store({
         userInfo:{
             username:'',
             userLevel:''
+        },
+        todoList:[]
+    },
+    getters:{
+        allTodos(state){
+            return state.todoList
+        },
+        activeTodos(state){
+            return state.todoList.filter((item) =>item.done === false)
+        },
+        completedTodos(state){
+            return state.todoList.filter((item) =>item.done ===true)
         }
     },
     mutations:mutations,
