@@ -7,12 +7,15 @@
         </template>
       </van-field>
     </van-cell-group>
-    <TodoList v-for="(todo, index) in filteredTodos" :key="index" :todo="todo" />
+    <ul><TodoList v-for="(todo, index) in filteredTodos" :key="index" :todo="todo" /></ul>
+   
+    
+    
     <footer>
       <van-tabbar v-model="active" @change="onChange">
-        <van-tabbar-item name="all" icon="https://img.yzcdn.cn/vant/user-inactive.png">all</van-tabbar-item>
-        <van-tabbar-item name="active" icon="search">active</van-tabbar-item>
-        <van-tabbar-item name="completed" icon="setting-o">completed</van-tabbar-item>
+        <van-tabbar-item name="all" icon="todo-list-o">all</van-tabbar-item>
+        <van-tabbar-item name="active" icon="fire-o">active</van-tabbar-item>
+        <van-tabbar-item name="completed" icon="completed">completed</van-tabbar-item>
       </van-tabbar>
     </footer>
   </div>
