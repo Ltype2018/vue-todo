@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="login">
     <van-tabs v-model="activeName">
       <van-tab title="免密码登录" name="login">
           <van-field v-model="tel" required type="tel" label="手机号"></van-field>
@@ -54,19 +54,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.login {
+  margin: 40% 10px 0px 10px;
 }
 
 </style>

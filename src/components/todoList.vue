@@ -1,17 +1,16 @@
 <template>
   <div class="todoList">
-    <template v-for="item in todoList">
-      <van-row v-bind:key="item.index">
+      <van-row>
         <van-col span="1">x</van-col>
-        <van-col span="22">{{item.todo}}</van-col>
+        <van-col span="22">{{todo.text}}</van-col>
         <van-col span="1">
-          <van-checkbox v-model="item.done"></van-checkbox>
+          <van-checkbox v-model="todo.done"></van-checkbox>
         </van-col>
       </van-row>
-    </template>
     <section class="footer">
       <van-row>
-        <van-col span="4" offset="6">
+          <van-col span="4">{{remain}}item left</van-col>
+        <van-col span="4" offset="4">
           <van-tag type="primary" @click="all">all</van-tag>
         </van-col>
         <van-col span="4">
@@ -21,34 +20,24 @@
           <van-tag type="warning" @click="completed">completed</van-tag>
         </van-col>
       </van-row>
-    </section>
+    </section> 
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters,mapState } from "vuex";
 
 export default {
   name: "todoList",
   data() {
     return {
+      ramain:'',
       checked: false,
-      todoList:[]
     };
   },
   computed:{
+      ...mapState(['todoList']),
       ...mapGetters(['allTodos','activeTodos','completedTodos'])
-  },
-  methods:{
-       all(){
-           this.todoList = this.allTodos
-       },
-       active(){
-           this.todoList = this.activeTodos
-       },
-       completed(){
-           this.todoList = this.completedTodos
-       }
   }
 };
 </script>

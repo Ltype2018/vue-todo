@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './actions'
+import filters from '@/filters/filters'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -13,15 +14,8 @@ const store = new Vuex.Store({
         todoList:[]
     },
     getters:{
-        allTodos(state){
-            return state.todoList
-        },
-        activeTodos(state){
-            return state.todoList.filter((item) =>item.done === false)
-        },
-        completedTodos(state){
-            return state.todoList.filter((item) =>item.done ===true)
-        }
+        filteredTodos:(state) =>(active) =>state.todoList.filter(filters[active])
+        
     },
     mutations:mutations,
     actions:actions
