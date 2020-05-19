@@ -10,4 +10,12 @@ const UPDATETODO = (state,value)=>{
         done:false
     })
 }
-export default {updateUserInfo,UPDATETODO}
+
+const EDITTODO = (state,{todo,done}) =>{
+  
+    todo.done = done
+}
+const REMOVETODO = (state, todo) =>{
+    state.todoList.splice(state.todoList.indexOf(todo), 1)
+}
+export default {updateUserInfo,UPDATETODO,EDITTODO, REMOVETODO}

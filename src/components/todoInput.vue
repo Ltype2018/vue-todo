@@ -7,12 +7,9 @@
         </template>
       </van-field>
     </van-cell-group>
-    <ul><TodoList v-for="(todo, index) in filteredTodos" :key="index" :todo="todo" /></ul>
-   
-    
-    
+    <TodoList v-for="(todo, index) in filteredTodos" :key="index" :todo="todo" /> 
     <footer>
-      <van-tabbar v-model="active" @change="onChange">
+      <van-tabbar v-model="active">
         <van-tabbar-item name="all" icon="todo-list-o">all</van-tabbar-item>
         <van-tabbar-item name="active" icon="fire-o">active</van-tabbar-item>
         <van-tabbar-item name="completed" icon="completed">completed</van-tabbar-item>
@@ -23,7 +20,6 @@
 
 <script>
 import TodoList from "./TodoList";
-import { mapGetters } from "vuex";
 export default {
   name: "TodoInput",
   data() {
@@ -33,16 +29,17 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["filteredTodos"])
+    //往getters传入当前激活tab
+    filteredTodos(){
+      return this.$store.getters.filteredTodos(this.active)
+    }
+    
   },
   methods: {
     addTodo() {
       this.$store.commit("UPDATETODO", this.value);
       this.value = "";
     },
-    onChange() {
-      this.filteredTodos(this.active);
-    }
   },
   components: {
     TodoList
@@ -53,6 +50,7 @@ export default {
 <style lang="scss" scoped>
 .todoInput {
   margin: 30% 10px 0px 10px;
+  overflow: hidden;
 }
 footer{
     height: 30px;;
