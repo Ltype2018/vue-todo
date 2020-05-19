@@ -7,5 +7,8 @@ const toggleTodo =({commit},todo) =>{
     commit('EDITTODO',{todo:todo,done:!todo.done})
 }
 
+const editTodo = ({commit}, playload) =>{
+    commit('EDITTODO',playload)
+}
 
-export default {v_toLogin,toggleTodo}
+export default {v_toLogin,toggleTodo,editTodo}

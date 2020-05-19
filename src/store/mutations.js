@@ -11,8 +11,8 @@ const UPDATETODO = (state,value)=>{
     })
 }
 
-const EDITTODO = (state,{todo,done}) =>{
-  
+const EDITTODO = (state,{todo,done=todo.done,text=todo.text}) =>{
+    todo.text = text
     todo.done = done
 }
 const REMOVETODO = (state, todo) =>{
