@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     addTodo() {
-      this.$store.commit("UPDATETODO", this.value);
+      this.$store.commit("UPDATE_TODO", this.value);
       this.value = "";
     },
   },

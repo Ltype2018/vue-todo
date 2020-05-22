@@ -7,15 +7,17 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state:{
+        token:'',
+        auth:true,
         userInfo:{
             username:'',
             userLevel:''
         },
-        todoList:[]
+        todoList:[],
+        newRoute:[]
     },
     getters:{
-        filteredTodos:(state) =>(active) =>state.todoList.filter(filters[active])
-        
+        filteredTodos:(state) =>(active) =>state.todoList.filter(filters[active])       
     },
     mutations:mutations,
     actions:actions

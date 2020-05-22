@@ -2,14 +2,14 @@
   <div class="TodoList" :class="{completed:todo.done, editing:editing}">
     <!--展示todolist-->
     <van-row class="view" >
-      <van-col span="1">
+      <van-col span="2">
         <input class="toggle" type="checkbox" :checked="todo.done" @change="toggleTodo(todo)" />
       </van-col>
-      <van-col span="22">
+      <van-col span="20">
         <label v-text="todo.text" @dblclick="editing = true"></label>
       </van-col>
-      <van-col span="1">
-        <van-button type="primary" @click="REMOVETODO(todo)">x</van-button>
+      <van-col span="2">
+        <van-button type="primary" @click="REMOVE_TODO(todo)">x</van-button>
       </van-col>
     </van-row>
     <input class="edit" v-show="editing" v-focus="editing" @blur="doneEdit" :value="todo.text" @keyup.enter="doneEdit" />
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     ...mapActions(["toggleTodo", "editTodo"]),
-    ...mapMutations(["REMOVETODO"]),
+    ...mapMutations(["REMOVE_TODO"]),
     doneEdit(e) {
       const value = e.target.value.trim();
       if (this.editing) {
@@ -55,5 +55,14 @@ export default {
 .editing .view{
   display: none;
 }
-
+.view{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.van-button{
+ height: 20px;
+ line-height: 20px;
+ text-align: center;
+}
 </style>

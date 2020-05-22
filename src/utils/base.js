@@ -1,6 +1,7 @@
-const baseUrl = 'http://rap2.taobao.org:38080/app/mock/232696'
+const baseUrl = 'http://localhost:8080'
 const base = {
-    'login':`${baseUrl}/login`
+    'login':`${baseUrl}/login`,
+    'getRoutes':`${baseUrl}/getRoutes`
 }
 
 export default base
