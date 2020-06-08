@@ -12,6 +12,7 @@ const toLogin = (data)=>instance({
     data:Qs.stringify(data)
 })
 
+//获取路由
 const fetchRoutes = () =>instance({
     url:base.getRoutes,
     method:'get'

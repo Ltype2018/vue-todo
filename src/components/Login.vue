@@ -41,15 +41,11 @@ export default {
     //提交表单，登陆后获取路由然后跳转到主页
     onSubmitInfo(val){
       this.$store.dispatch('Login',val)
-      .then(() =>this.$store.dispatch('getRoutes')
-      .then(() =>{
-        this.$router.addRoutes(this.$store.state.newRoute)
-        console.log(this.$store.state.newRoute)
-        this.$router.push({path:'/todo'})}))  
+      .then(() =>this.$router.push({path:'/todo'}))
       
     },
      telLogin(){
-      console.log('fucn')
+      this.$store.dispatch('getRoutes')
      }
   }
 };
