@@ -12,7 +12,7 @@
 
 <script>
 import LayoutAside from '@/components/LayoutAside'
-import LayoutHeader from "@/components/LayoutHeader";
+import LayoutHeader from "@/components/LayoutHeader"
 export default {
   name: "Layout",
   components: {

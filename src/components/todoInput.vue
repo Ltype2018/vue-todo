@@ -31,13 +31,13 @@ export default {
   computed: {
     //往getters传入当前激活tab
     filteredTodos(){
-      return this.$store.getters.filteredTodos(this.active)
+      return this.$store.getters['todo/filteredTodos'](this.active)
     }
     
   },
   methods: {
     addTodo() {
-      this.$store.commit("UPDATE_TODO", this.value);
+      this.$store.commit("todo/UPDATE_TODO", this.value);
       this.value = "";
     },
   },

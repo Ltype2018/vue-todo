@@ -1,26 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mutations from './mutations'
-import actions from './actions'
-import filters from '@/filters/filters'
+import user from './modules/user'
+import todo from './modules/todo'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    state:{
-        token:'',
-        auth:true,
-        userInfo:{
-            username:'',
-            userLevel:''
-        },
-        todoList:[],
-        newRoute:[]
+    modules:{
+        user,
+        todo
     },
-    getters:{
-        filteredTodos:(state) =>(active) =>state.todoList.filter(filters[active])       
-    },
-    mutations:mutations,
-    actions:actions
 })
 
 export default store                                                                

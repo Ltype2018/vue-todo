@@ -35,8 +35,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["toggleTodo", "editTodo"]),
-    ...mapMutations(["REMOVE_TODO"]),
+    ...mapActions('todo',["toggleTodo", "editTodo"]),
+    ...mapMutations('todo',["REMOVE_TODO"]),
     doneEdit(e) {
       const value = e.target.value.trim();
       if (this.editing) {

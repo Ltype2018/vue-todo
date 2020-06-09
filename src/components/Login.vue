@@ -40,7 +40,7 @@ export default {
   methods:{
     //提交表单，登陆后获取路由然后跳转到主页
     onSubmitInfo(val){
-      this.$store.dispatch('Login',val)
+      this.$store.dispatch('user/Login',val)
       .then(() =>this.$router.push({path:'/todo'}))
       
     },
