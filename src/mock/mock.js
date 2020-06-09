@@ -13,12 +13,22 @@ Mock.mock(`${testUrl}/login`, 'post', (options) => {
     if (userName === 'today' && password === 123456) {
         return {
             userName: 'today',
-            userRole: 'superMember'
+            userLevel: 'superMember',
+            token:'setalljadg'
         }
     }else{
         return {
             userName: 'tomorow',
-            userRole: 'superMember'
+            userLevel: 'superMember',
+            token:'athllaghl'
         }
     }
+})
+
+Mock.mock(`${testUrl}/userInfo`, 'get', () => {
+        return {
+            userName: 'today',
+            userLevel: 'superMember',
+            token:'setalljadg'
+        }
 })

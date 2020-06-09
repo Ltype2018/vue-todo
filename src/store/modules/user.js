@@ -1,8 +1,7 @@
-import {toLogin} from '@/api/login'
+import {toLogin,fetchUserInfo} from '@/api/login'
 //用户信息模块
 const state = {
     token: '',
-    auth:true,
     userInfo: {
         username: '',
         userLevel: '',
@@ -14,11 +13,18 @@ const state = {
 const actions = {
     //登录函数
     Login({ commit }, data) {
-        return toLogin(data).then(res => commit('UPDATE_USERINFO', res.data))
+        return toLogin(data).then(res => {
+            commit('UPDATE_USERINFO', res.data)
+            commit('SET_TOKEN',res.data.token)
+        })
     },
     //退出账号
     signOut({ commit }) {
         commit('SIGN_OUT')
+    },
+    //获取用户信息
+    getUserInfo({commit}){
+        fetchUserInfo().then(res => commit('UPDATE_USERINFO',res.data))
     }
 }
 
@@ -35,7 +41,9 @@ const mutations = {
     },
     //退出账号
     SIGN_OUT(state) {
-        state.auth = false
+        state.username = ''
+        state.userLevel = ''
+        state.logoImage = ''
         state.token = ''
         window.localStorage.setItem('token', '')
     }

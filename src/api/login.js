@@ -13,15 +13,17 @@ const toLogin = (data)=>instance({
 })
 
 //获取路由
+/*
 const fetchRoutes = () =>instance({
     url:base.getRoutes,
     method:'get'
 })
-// 用于测试用户信息是否准确
-/*
-const getInfo = () =>instance({
-      url:base.info,
+*/
+
+//拉取用户信息
+const fetchUserInfo = () =>instance({
+      url:base.userInfo,
       method:'get'
 })
-*/
-export  {toLogin,fetchRoutes}
+
+export  {toLogin,fetchUserInfo}

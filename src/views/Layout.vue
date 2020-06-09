@@ -1,23 +1,20 @@
 <template>
   <div class="layout">
     <div class="layoutHeader">
-      <LayoutHeader></LayoutHeader>
+      <LayoutMenus></LayoutMenus>
     </div>
     <div class="layoutMain">
-      <div class="layoutAside"><LayoutAside></LayoutAside></div>
       <div class="layoutContent"><router-view></router-view></div>
     </div>
   </div>
 </template>
 
 <script>
-import LayoutAside from '@/components/LayoutAside'
-import LayoutHeader from "@/components/LayoutHeader"
+import LayoutMenus from "@/components/LayoutMenus"
 export default {
   name: "Layout",
   components: {
-    LayoutHeader,
-    LayoutAside
+    LayoutMenus
   }
 };
 </script>
